@@ -1,0 +1,61 @@
+
+\documentclass{sig-alternate-05-2015}
+
+\begin{document}
+
+% Copyright
+\setcopyright{acmcopyright}
+
+%Conference
+\conferenceinfo{11741'F16}{Pittsburgh, Pennsylvania USA}
+
+
+%
+% --- Author Metadata here ---
+\conferenceinfo{11741'F16}{Pittsburgh, Pennsylvania USA}
+
+
+\title{Reading Summary IR: Ch 1.1, 1.2, 6.3}
+
+
+\numberofauthors{1} 
+\author{
+\alignauthor
+Xin Qian\\
+      \affaddr{Language Technologies Institute}\\
+       \affaddr{Carnegie Mellon University}\\
+       \affaddr{Pittsburgh, PA 15213, USA}\\
+          \email{xinq@cs.cmu.edu}
+}
+% There's nothing stopping you putting the seventh, eighth, etc.
+% author on the opening page (as the 'third row') but we ask,
+% for aesthetic reasons that you place these 'additional authors'
+% in the \additional authors block, viz.
+
+
+\maketitle
+%\begin{abstract}
+%
+%The abbreviative and informal nature of tweet reveals several problems in performing ad-hoc retrieval task on Twitter. One of them is the vocabulary mismatch problem. Using external sources is one effective way to solve this problem and improve retrieval quality. Three ways of using external sources are query expansion, document expansion and EsdRank. This proposal discusses three practical issues on using EsdRank method and introduces potential starting point to improve Twitter ranking with Wikipedia . 
+%\end{abstract}
+
+\section{Ch 1.1}
+This section uses the simple query example of \textit{Brutus AND Caesar AND NOT Calpurnia} to bring out more retrieval requirements beyond a simple linear scan method. Large document collections, slop distance matching support and ranked retrieval support are three major requirements. The binary term-document \textit{incidence matrix} has each row vector for a term, to show which document it appears in. It has each coloum vector for each document, to show which term appears in it. To answer the example query, we can take the corresponding vector and do a bitwise boolean operation. This brings us to several related concepts of the \textit{Boolean retrieval model}, in which each query is written as a Boolean expression of terms. \textit{Collection} and \textit{corpus} are used interchangeably to refer the group of documents. \textit{Ad hoc retrieval} searches relevant documents out of a collection according to user information need. \textit{Information need} is the topic that user is interested to know about and expresses in the form of a \textit{query}. \textit{Relevant} means that the user receives valuable information w.r.t. their information need. Statistics like \textit{precision} and \textit{recall} are used to evaluate the \textit{effectiveness} of an IR system. Instead of using a sparse term-document matrix, we might want to represent only 1 positions with \textit{inverted index}. For each term in a \textit{dictionary} of terms, the sorted \textit{postings list} marks those documents that the term appeared in. 
+
+\section{Ch 1.2}
+Steps to build an index in advance includes collecting the documents, tokenizing the documents, normalizing tokens and creating the inverted index. In the 4th step, we input a list of pairs of term and docID. \textit{Sorting} the list makes terms alphabetical. Occurrences of the same term are merged. Instances of the same term are grouped. \textit{Document frequency} is the length of each postings list. Postings are then sorted by docID. We use either singly linked lists or variable length arrays, or even a hybrid scheme for the postings list for each term. The postings lists usually stored on disk.
+\section{Ch 6.3}
+The \textit{vector space model} represents documents as vectors in a vector space. Each component in the vector represents each dictionary term. This \textit{bag of words} representation is order insensitive. We compute the similarity between two documents with \textit{cosine similarity} - \textit{dot product} divided by the \textit{length-normalize} product of two \textit{Euclidean lengths}. We use this similarity measure to find the most similar document to a document \textit{d} within a collection. \textit{Term-document matrix} represents a collection of N documents. We could also view a \textit{query} as a short document and use a vector to represent it. Likewise, we could also compute query-document similarity. The basic \textit{term-at-a-time} scoring algorithm for computing vector space scores is illustrated in pseudo code snippet.
+%
+% The following two commands are all you need in the
+% initial runs of your .tex file to
+% produce the bibliography for the citations in your paper.
+\bibliographystyle{abbrv}
+\bibliography{sigproc}  % sigproc.bib is the name of the Bibliography in this case
+% You must have a proper ".bib" file
+%  and remember to run:
+% latex bibtex latex latex
+% to resolve all references
+
+
+\end{document}
