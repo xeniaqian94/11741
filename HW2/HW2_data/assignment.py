@@ -14,9 +14,8 @@ def assignment(M, centroids):
     M_indptr = M_normalized.indptr
 
     centroids_normalized = normalize(centroids, norm="l2", axis=1)
-    centroids_normalized_transpose = np.transpose(centroids_normalized)
 
-    labels = -np.ones(n,dtype=np.int64)
+    labels = -np.ones(n, dtype=np.int64)
     similarity = np.array(np.zeros(n), dtype=np.float64)
 
     for i in range(n):

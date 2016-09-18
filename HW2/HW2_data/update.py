@@ -5,9 +5,6 @@ import numpy as np
 def update(M, labels, k):
     n = M.shape[0]
     d = M.shape[1]
-    M_data = M.data
-    M_indices = M.indices
-    M_indptr = M.indptr
     centroids = np.zeros((k, d))
 
     # Before the update step, first handle those empty cluster, randomly pick a document to this cluster

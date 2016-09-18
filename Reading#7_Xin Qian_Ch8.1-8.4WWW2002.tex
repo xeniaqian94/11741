@@ -1,0 +1,105 @@
+\documentclass[9pt]{article}
+
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage{graphicx} % Required to insert images
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+% Margins
+\topmargin=-0.25in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.15in 
+
+\linespread{1.2} % Line spacing
+
+% Set up the header and footer
+%\pagestyle{fancy}
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT STRUCTURE COMMANDS
+%	Skip this unless you know what you're doing
+%----------------------------------------------------------------------------------------
+
+% Header and footer for when a page split occurs within a problem environment
+\newcommand{\enterProblemHeader}[1]{
+\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+}
+
+% Header and footer for when a page split occurs between problem environments
+\newcommand{\exitProblemHeader}[1]{
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1}{}\nobreak
+}
+
+\setcounter{secnumdepth}{0} % Removes default section numbers
+\newcounter{homeworkProblemCounter} % Creates a counter to keep track of the number of problems
+
+\newcommand{\homeworkProblemName}{}
+\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]{ % Makes a new environment called homeworkProblem which takes 1 argument (custom name) but the default is "Problem #"
+\stepcounter{homeworkProblemCounter} % Increase counter for number of problems
+\renewcommand{\homeworkProblemName}{#1} % Assign \homeworkProblemName the name of the problem
+\section{\homeworkProblemName} % Make a section in the document with the custom problem count
+\enterProblemHeader{\homeworkProblemName} % Header and footer within the environment
+}{
+\exitProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+
+\newcommand{\problemAnswer}[1]{ % Defines the problem answer command with the content as the only argument
+\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}} % Makes the box around the problem answer and puts the content inside
+}
+
+\newcommand{\homeworkSectionName}{}
+\newenvironment{homeworkSection}[1]{ % New environment for sections within homework problems, takes 1 argument - the name of the section
+\renewcommand{\homeworkSectionName}{#1} % Assign \homeworkSectionName to the name of the section from the environment argument
+\subsection{\homeworkSectionName} % Make a subsection with the custom name of the subsection
+\enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]} % Header and footer within the environment
+}{
+\enterProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+   
+%----------------------------------------------------------------------------------------
+%	NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\hmwkTitle}{Reading Summary Ch 21} 
+\newcommand{\hmwkClass}{11642}
+\newcommand{\hmwkAuthorName}{Xin Qian} % Your name
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title{
+\textmd{\textbf{\hmwkClass:\ \hmwkTitle}
+}}
+
+\author{\textbf{\hmwkAuthorName}}
+ % Insert date here if you want it to appear below your name
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+\subsection{11741 Reading Summary, Ch 8.1-8.4 WWW2002 \\Xin Qian (xinq@cs.cmu.edu)}
+\subsection{Ch 8.1}
+Ad hoc information retrieval effectiveness measurement needs three pieces: the document collection, the test suite and the relevance judgments set. Notice that relevance is relative to an information need. A document that contains all the words in the query might still be irrelevant. The usual procedure to tune system performance is to do so ona development test collections and then runs the tuned system on the test collection to get an unbiased estimate of performance. 
+\subsection{Ch 8.2}
+Several well-known standard test collections including ad hoc information retrieval collection such as \textit{Cranfield} collection, TREC collection, NTCIR collection and CLEF collection, and text classification collection such as Reuters and 20 Newsgroups. 
+\subsection{Ch 8.3}
+Precision and Recall, both concentrates on the return of true position (relevant documents), are used to measure the effectiveness of unranked retrieval situations. The two quantities trade off against each other. Recall is a non-decreasing function but precision tends to decrease as the number of documents retrieved increases. Accuracy is the fraction of correct classification which can be used if we see an information retrieval system as a two-class classifier. F score is the weighted harmonic mean of precision and recall. 
+\subsection{Ch 8.4}
+For ranked retrieval results, the set of retrieved documents can be potted to have a saw-tooth shaped \textit{precision-recall curve}. \textit{Interpolated precision} is every highest precision at each certain recall level. \textit{11-point interpolated average precision} is used to examine the entire precision-recall curve. \textit{Mean Average Precision} the the average over information needs on the individual average of precision for the top k (k from 1 to the total number of documents retrieved) documents retrieved. \textit{R-precision} is a break-even point when the precision and the recall are identical. ROC curve plots sensitivity against (1-specificity). NDCG is for graded notions of relevance. 
+\subsection{Haveliwala 2002}
+This paper discussed a topic-sensitive modification to the original PageRank algorithm. Instead of a signle importance score, they compute a set of scores w.r.t. various topics. The first step of topic-sensitive PageRank is to generate a set of "basis" topics. We replace the uniform damping vector with the nonuniform damping vector. At query time, each query has a set of class probability for each topic class, parameters are tuned by maximum-likelihood estimates using a unigram language model. The probabilistic interpretation of this query-sensitive PageRank follows the "random surfer" model. Experiment results are evaluated using two measures, absolute ranking overlap measures and relative ranking agreement rate. The paper conducted a user study to compare the query-sensitive approach to ordinary PageRank. A majority of users prefers rankings induced from topic-sensitive PageRanks socres. 
+
+
+
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
