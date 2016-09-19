@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  19 SEP 2016 00:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  19 SEP 2016 00:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -745,45 +745,82 @@ Underfull \hbox (badness 10000) in paragraph at lines 63--64
 
  []
 
+<Coarsefrom20to80.png, id=1, 578.16pt x 433.62pt>
+File: Coarsefrom20to80.png Graphic file (type png)
+ <use Coarsefrom20to80.png>
+Package pdftex.def Info: Coarsefrom20to80.png used on input line 65.
+(pdftex.def)             Requested size: 173.44933pt x 130.087pt.
 
-Overfull \hbox (14.85728pt too wide) in paragraph at lines 65--66
+<finefrom60to70.png, id=3, 578.16pt x 433.62pt>
+File: finefrom60to70.png Graphic file (type png)
+ <use finefrom60to70.png>
+Package pdftex.def Info: finefrom60to70.png used on input line 66.
+(pdftex.def)             Requested size: 173.44933pt x 130.087pt.
+
+Overfull \hbox (14.85728pt too wide) in paragraph at lines 69--70
 []\OT1/cmr/m/n/10 k=67. The mean is 0.541058776344, vari-ance is 0.000705561496
 9. The best F1 out of 10 is 0.579381737382. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 65--66
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--68
+Underfull \hbox (badness 10000) in paragraph at lines 71--72
 
  []
 
 [1
 
-{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 73--74
+{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Coars
+efrom20to80.png> <./finefrom60to70.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 77--78
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 75--76
+Underfull \hbox (badness 10000) in paragraph at lines 79--80
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 81--82
+Underfull \hbox (badness 10000) in paragraph at lines 82--83
 
  []
 
-[2] (./report.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 90--91
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--96
+
+ []
+
+[3] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 13395 strings out of 493089
- 282087 string characters out of 6134842
- 317602 words of memory out of 5000000
- 16777 multiletter control sequences out of 15000+600000
+ 13407 strings out of 493089
+ 282337 string characters out of 6134842
+ 319608 words of memory out of 5000000
+ 16786 multiletter control sequences out of 15000+600000
  11882 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,6n,41p,10434b,378s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -796,10 +833,10 @@ m/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 sy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
 i10.pfb>
-Output written on report.pdf (2 pages, 91636 bytes).
+Output written on report.pdf (3 pages, 148694 bytes).
 PDF statistics:
- 43 PDF objects out of 1000 (max. 8388607)
- 30 compressed objects within 1 object stream
+ 51 PDF objects out of 1000 (max. 8388607)
+ 33 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

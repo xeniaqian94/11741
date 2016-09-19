@@ -38,7 +38,8 @@ for k in n_cluster:
             else:
                 print "New similarity " + str(similarity.sum()) + " Old similarity " + str(old_similarity.sum())
 
-        f = open("HW2_test.eval_output_" + str(k) + "_" + str(time) + "_custom_logScale",
+        f = open(sys.argv[1].split(".")[0]+".eval_output_" + str(k) + "_" + str(time) + "_custom_logScale",
+
                  'w')  # f = open("HW2_dev.eval_output_" + str(k) + "_" + str(time)+"_tuneBaslinek", 'w')
 
         for i in range(n):

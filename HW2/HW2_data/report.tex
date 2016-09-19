@@ -20,7 +20,7 @@
 
 \title{11-741 k-means Clustering} % Title
 
-\author{Xin Qian} % Author name
+\author{Xin Qian, xinq} % Author name
 
 \date{\today} % Date for the report
 
@@ -60,7 +60,11 @@ For the first document in the development set, the total number of unique words 
 The number of document clusters and stopping criteria are the same for all three approaches. The number of document clusters is 67. Stopping criteria is either cluster labels does not change for all document instances after an assignment-update iteration, or the difference between two iterations on sum of cosine similarity for all document instances differs no more than 1e-4. Usually the algorithm stops within 10 iterations.
 
 \subsection{Baseline approach}
-Parameters are tuned at two stages, first coarsely and then fine-grained.  \\
+Parameters are tuned at two stages, first coarsely and then fine-grained, shown as plots below. \\
+\begin{center}
+\includegraphics[scale=0.3]{Coarsefrom20to80.png}
+\includegraphics[scale=0.3]{finefrom60to70.png}
+\end{center}
 
 k=67. The mean is 0.541058776344, variance is 0.0007055614969. The best F1 out of 10 is 0.579381737382.\\
 \subsection{k-means++ approach}
@@ -75,8 +79,18 @@ This custom algorithm solves the problem in raw term frequency scheme where all 
 k=67. The mean is 0.606431487906, variance is 0.000777387170029. The best F1 out of 10 is 0.658362769998.\\
 
 \subsection{Analysis}
-The custom algorithm (with tf-idf weighting, kmeans++ centroid initialization and cosine similarity measurement) achieves the best results. The baseline k-means performed worst. For the custom algorithm, the tf-idf weighting scheme worked out well and didn't increase much on computation cost. This improvement is desirable in that it emphasizes the informativeness of rare term while suppress the expressiveness of frequent terms. This follows the intuition that a term that occurs many times only within a small collection of documents must have high discriminating power to these documents v.s. others, which therefore better models the 1-versus-all classification problem or the clustering problem.
+The custom algorithm (with tf-idf weighting, kmeans++ centroid initialization and cosine similarity measurement) achieves the best results. For the custom algorithm, the tf-idf weighting scheme worked out well and didn't increase much on computation cost. This improvement is desirable in that it emphasizes the informativeness of rare term while suppress the expressiveness of frequent terms. This follows the intuition that a term that occurs many times only within a small collection of documents must have high discriminating power to these documents v.s. others, which therefore better models the 1-versus-all classification problem or the clustering problem.\\
+
+The baseline k-means performed worst but the performance gap is not large. This is due to the handling of empty clusters. Every time when a cluster got empty, we randomly pick a new point to the cluster. This is analogous to a random walk/reboot in the objective function and prevents iterations stuck into a relatively poor local minima. 
 \subsection{Software implementation \& data preprocessing}
+The software is developed under Python 2.7.10 with external scipy and numpy library for simple linear algebra operations and sparse data representation. It is includes modules: 1) load\_docVec (along with load\_customDocVec) where we construct a sparse matrix of term-document matrix; 2) random\_initializaiton (along with kMeansPlusPlus\_Initialization): where we select initial centroids in either way; 3) assignment: when we assign each document to one of the cluster; 4) update: when we update centroids based on the assignment result in this iteration; 4) main: this module chains the whole process together. \\
+
+The major data structures include sparse matrix for term-document matrix M, dense matrix for centroids C, arrays for cluster labels, dict for document frequency, etc. Each document-centroid cosine similarity calculation is performed in a position-by-position case, where we read each normalized term frequency in M and each normalized term frequency in C, multiplies them together and sums over all terms to get a cosine similarity. \\
+
+Included are Numpy and Scipy library. On the remote UNIX environment, numpy is installed but not scipy. PyCharm is used as the programming IDE. \\
+
+My design strictly follows the kmeans/kmeans++ process. The modulars are highly in cohesion and low in coupling. Parameters can be tuned in an easy manner, by modifying the n\_cluster array to add more desired value of n\_cluster. Scipy and Numpy provides excellent support on scientific computation. The code is easier to understand than C++. Design in Python is efficient in implementation but the running time is relatively slower than C++/Java. There's by far no problem encountered by my system. \\
+
 \subsection{Source code and test set results}
 Please find the README.txt file for instructions on running the code. \\
 
