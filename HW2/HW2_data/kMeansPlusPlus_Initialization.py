@@ -28,7 +28,7 @@ def kMeansPlusPlus_Initialization(n, d, M, k):
                 this_similarity = 0
                 for m in range(M_indptr[j], M_indptr[j + 1]):
                     this_similarity += centroids_normalized[l, M_indices[m]] * M_data[m]
-                if (max_similarity < this_similarity):
+                if max_similarity < this_similarity:
                     max_similarity = this_similarity
             if max_similarity > 1:
                 distance[j] = 0

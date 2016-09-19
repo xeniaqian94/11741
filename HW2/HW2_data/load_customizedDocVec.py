@@ -4,7 +4,7 @@ import numpy as np
 
 # Load development data and for corpus exploration
 # Usage: python load_docVec.py [.docVec file]"
-def load_CustomizedDocVec(docVecFile, dfFile):
+def load_customizedDocVec(docVecFile, dfFile):
     row = list()
     col = list()
     data = list()
@@ -18,6 +18,12 @@ def load_CustomizedDocVec(docVecFile, dfFile):
 
     print len(dict)
 
+    lineTotal = 0
+    for line in docVectorFile:
+        lineTotal += 1
+    print lineTotal
+    docVectorFile = open(docVecFile, "r")
+
     lineCount = 0
     for line in docVectorFile:
         words = line[:-1].strip(" ").split(" ")
@@ -25,7 +31,7 @@ def load_CustomizedDocVec(docVecFile, dfFile):
             entry = word.split(":")
             # print entry
             wordIndex = int(entry[0])
-            frequency = float(1.0*int(entry[1])/dict[wordIndex])
+            frequency = float(1.0 * int(entry[1]) * np.log(lineTotal/dict[wordIndex]))
             row.append(lineCount)
             col.append(wordIndex)
             data.append(frequency)
