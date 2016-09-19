@@ -2,6 +2,10 @@ Thanks for reading this. For any questions, please feel free to contact xinq@cs.
 
 This README provides instructions on how to run experiments in 6.1.2. First enter this directory. 
 
+0. [!IMPORTANT!] It is very UNLIKELY to have scikit-learn installed on the remote UNIX environment. Please install as follows,
+cd scikit-learn
+make #This may take several minutes to finish
+
 1. Baseline approach, 
 command: python main_baseline.py HW2_dev.docVectors
 10 outputs are named as, HW2_dev.eval_output_67_[0-9]_baseline
