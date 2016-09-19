@@ -32,10 +32,10 @@ def load_docVec(docVecFile):
     d = M.shape[1]  # number of features/words/dimensions
     print "Total number of unique words " + str(d)
 
-    rows = (M != 0).sum(1)
-    print "Unique words for the first document " + str(rows[0])
+    # rows = (M != 0).sum(1)
+    # print "Unique words for the first document " + str(rows[0])
     print "Word ids with twice occurrence for the first document "
     print np.nonzero(M[0] == 2)[1]
 
-    print "Average number of unique words per document " + str(rows.mean())
+    # print "Average number of unique words per document " + str(rows.mean())
     return n, d, M
