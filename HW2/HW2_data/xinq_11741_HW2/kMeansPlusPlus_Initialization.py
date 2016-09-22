@@ -1,5 +1,6 @@
 import random
 import numpy as np
+import sys
 from sklearn.preprocessing import normalize
 
 
@@ -22,18 +23,27 @@ def kMeansPlusPlus_Initialization(n, d, M, k):
     for i in range(1, k):
         distance = np.array(np.zeros(n), dtype=np.float64)
         for j in range(n):
-            max_similarity = -1
-            # Find the closest distance
+            min_distance_sqr = sys.maxint
             for l in range(i):
-                this_similarity = 0
-                for m in range(M_indptr[j], M_indptr[j + 1]):
-                    this_similarity += centroids_normalized[l, M_indices[m]] * M_data[m]
-                if max_similarity < this_similarity:
-                    max_similarity = this_similarity
-            if max_similarity > 1:
-                distance[j] = 0
-            else:
-                distance[j] = 1 - max_similarity
+                this_distance_sqr = np.linalg.norm(M[j] - centroids[l]) ** 2
+                if (this_distance_sqr < min_distance_sqr):
+                    min_distance_sqr = this_distance_sqr
+            if min_distance_sqr < 0:
+                min_distance_sqr = 0
+            distance[i] = min_distance_sqr
+
+            # max_similarity = -1
+            # # Find the closest distance
+            # for l in range(i):
+            #     this_similarity = 0
+            #     for m in range(M_indptr[j], M_indptr[j + 1]):
+            #         this_similarity += centroids_normalized[l, M_indices[m]] * M_data[m]
+            #     if max_similarity < this_similarity:
+            #         max_similarity = this_similarity
+            # if max_similarity > 1:
+            #     distance[j] = 0
+            # else:
+            #     distance[j] = 1 - max_similarity
 
         distance_norm = distance / np.linalg.norm(distance, ord=1)
         candidate_seed_index = np.random.choice(range(n), p=distance_norm)
