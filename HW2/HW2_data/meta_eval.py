@@ -9,7 +9,7 @@ meta_F1=np.zeros(len(n_cluster))
 for k in range(len(n_cluster)):
     F1 = np.zeros(10)
     for time in range(10):
-        F1[time] = eval_module.eval("HW2_dev.eval_output_" + str(n_cluster[k]) + "_" + str(time) + "_custom_logScale", "HW2_dev.gold_standards")
+        F1[time] = eval_module.eval("HW2_dev.eval_output_" + str(n_cluster[k]) + "_" + str(time) + "_kmeans++Revisit", "HW2_dev.gold_standards")
         print F1[time]
     print str(n_cluster[k])+" clusters: "+str(np.mean(F1))+" "+str(np.var(F1))
     meta_F1[k]=np.mean(F1)
