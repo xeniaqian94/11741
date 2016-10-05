@@ -3,7 +3,8 @@ import numpy as np
 import time
 
 
-def powerIteration(alpha, M, r, p_0):
+def powerIteration(alpha, beta, gamma, M, r, p_0, p_t):
+    print "alpha beta gamma sum to 1? " + str((alpha + beta + gamma) == 1)
     empty_row = np.where(M.sum(axis=1) == 0)[0]  # which will be empty_column after transpose
     N = M.shape[0]
     M_transpose = M.transpose()
@@ -20,7 +21,7 @@ def powerIteration(alpha, M, r, p_0):
     M_transpose_mul_r_part2 = np.ones(N) * 1.0 * sum([r[i] for i in empty_row]) / N
     print "Part 2 Seconds " + str(time.time() - runtime)
 
-    return (1 - alpha) * (M_transpose_mul_r_part1 + M_transpose_mul_r_part2) + alpha * p_0
+    return alpha * (M_transpose_mul_r_part1 + M_transpose_mul_r_part2) + beta * p_t + gamma * p_0
 
 
 

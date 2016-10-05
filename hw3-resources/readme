@@ -1,0 +1,117 @@
+Enter src directory
+
+GPR NS 
+
+python GPR.py transition.txt GPR-10.txt
+
+cd indri-lists/ 
+
+rm -rf 1_10_WS-combined.txt
+
+for i in $(ls); do python ../rerank_NS.py "$i" "../GPR-10.txt" "WS-combined.txt" ; done;
+
+find the 1_10_WS-combined.txt file in the indri-lists/ directory, use trec_eval to evaluate the result
+
+
+QTSPR NS
+
+python QTSPR.py transition.txt
+
+cd indri-lists/ 
+
+rm -rf 1_10_WS-combined.txt
+
+for i in $(ls); do python ../rerank_NS.py "$i" "../topic-specific-score/$i" "WS-combined.txt" ; done;
+
+find the 1_10_WS-combined.txt file in the indri-lists/ directory, use trec_eval to evaluate the result
+
+
+PTSPR NS
+
+python PTSPR.py transition.txt
+
+cd indri-lists/ 
+
+rm -rf 1_10_WS-combined.txt
+
+for i in $(ls); do python ../rerank_NS.py "$i" "../user-specific-score/$i" "WS-combined.txt" ; done;
+
+find the 1_10_WS-combined.txt file in the indri-lists/ directory, use trec_eval to evaluate the result
+
+
+GPR WS 
+
+python GPR.py transition.txt GPR-10.txt
+
+cd indri-lists/ 
+
+rm -rf 1_10_WS-combined.txt
+
+for i in $(ls); do python ../rerank_WS.py "$i" "../GPR-10.txt" "WS-combined.txt" ; done;
+
+find the 1_10_WS-combined.txt file in the indri-lists/ directory, use trec_eval to evaluate the result
+
+
+QTSPR WS
+
+python QTSPR.py transition.txt
+
+cd indri-lists/ 
+
+rm -rf 1_10_WS-combined.txt
+
+for i in $(ls); do python ../rerank_WS.py "$i" "../topic-specific-score/$i" "WS-combined.txt" ; done;
+
+find the 1_10_WS-combined.txt file in the indri-lists/ directory, use trec_eval to evaluate the result
+
+
+PTSPR WS
+
+python PTSPR.py transition.txt
+
+cd indri-lists/ 
+
+rm -rf 1_10_WS-combined.txt
+
+for i in $(ls); do python ../rerank_WS.py "$i" "../user-specific-score/$i" "WS-combined.txt" ; done;
+
+find the 1_10_WS-combined.txt file in the indri-lists/ directory, use trec_eval to evaluate the result
+
+
+GPR CM
+
+python GPR.py transition.txt GPR-10.txt
+
+cd indri-lists/ 
+
+rm -rf 1_10_WS-combined.txt
+
+for i in $(ls); do python ../rerank_WS.py "$i" "../GPR-10.txt" "WS-combined.txt" ; done;
+
+find the 1_10_WS-combined.txt file in the indri-lists/ directory, use trec_eval to evaluate the result
+
+
+QTSPR CM
+
+python QTSPR.py transition.txt
+
+cd indri-lists/ 
+
+rm -rf 1_10_WS-combined.txt
+
+for i in $(ls); do python ../rerank_WS.py "$i" "../topic-specific-score/$i" "WS-combined.txt" ; done;
+
+find the 1_10_WS-combined.txt file in the indri-lists/ directory, use trec_eval to evaluate the result
+
+
+PTSPR CM
+
+python PTSPR.py transition.txt
+
+cd indri-lists/ 
+
+rm -rf 1_10_WS-combined.txt
+
+for i in $(ls); do python ../rerank_WS.py "$i" "../user-specific-score/$i" "WS-combined.txt" ; done;
+
+find the 1_10_WS-combined.txt file in the indri-lists/ directory, use trec_eval to evaluate the result
