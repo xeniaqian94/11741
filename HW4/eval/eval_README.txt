@@ -1,0 +1,1 @@
+To run eval_rmse.py, type 'python eval_rmse.py dev.golden [your-system-predictions-file]'
